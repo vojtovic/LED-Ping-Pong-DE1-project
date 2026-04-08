@@ -1,53 +1,41 @@
-#########################################################################################
-##  Project    : Collect of various scripts for working with EDA-tools (ASIC/FPGA/etc) ##
-##  Designer   : Dmitry Murzinov (kakstattakim@gmail.com)                              ##
-##  Link       : https://github.com/iDoka/eda-scripts                                  ##
-##  Description: .gitignore                                                            ##
-##  Usage      : just rename or add contain to .gitignore                              ##
-##  License    : MIT                                                                   ##
-#########################################################################################
-
-## log files
+# --- Vivado Dočasné soubory a adresáře ---
+*.jou
 *.log
-*.rpt
-
-## bitstream
-*.bit
-
-## netlist
-*.edf
-*.edif
-*.vn
-
-## SDF
-*.sdf
-
-###### for Xilinx Vivado|ISE
+*.str
+*.backup
 .Xil/
-.hbs/
-.cache/
-xsim.dir/
+v++_2d_temp/
+.crash_reporter/
 
-worklib.tb.wdb
-fsm_encoding.os
-tab_*/
-webtalk.jou
-webtalk.log
-webtalk_*.jou
-webtalk_*.log
-vivado.jou
-vivado.log
-vivado_pid*.str
-hs_err_pid*
-xelab.*
-xsim.*
-xvlog.*
-*.cache
-*.sim
-*.runs
-*.hw
-*.backup.*
-*.debug
+# --- Výstupy z kompilace a běhu ---
+*.dir/
+*.pb
+*.rpt
+*.vdi
+*.dcp
+*.ltx
+*.xml
 
+# --- Adresáře projektových dat ---
+# Tyto složky obsahují výsledky syntézy, implementace a simulace.
+# Pokud chcete zachovat konfiguraci IP jader, viz sekci níže.
+/runs/
+/results/
+/sim/
+/ip/
+/.cache/
+/hw_viewer/
 
-unisims
+# --- SDK / Vitis (pokud používáte) ---
+.metadata/
+.sdk/
+/sw/
+*.elf
+*.bit
+*.mmi
+*.xsa
+
+# --- Ostatní ---
+*.os
+*.o
+*.obj
