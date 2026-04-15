@@ -12,9 +12,11 @@
  ## Components
 ### bin2led
 convert input from conter into led position
-### control_logic
-zle veci
 
+### control_logic
+controls main logic
+### reverse_counter
+counts from 15 to 0
 
 
  
