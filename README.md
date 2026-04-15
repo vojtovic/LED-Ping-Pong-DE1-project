@@ -13,6 +13,7 @@
 ### bin2led
 convert input from conter into led position
 
+![testbench](bin2led_tb.png)
 ### control_logic
 controls main logic
 ### reverse_counter
