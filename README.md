@@ -11,9 +11,12 @@
 
  ## Components
 ### bin2led
-convert input from conter into led position
+converts input from counter into led position
 
-![testbench](bin2led_tb.png)
+<div align="center">
+  <img src="bin2led_tb.png" width="400" />
+</div>
+ 
 ### control_logic
 controls main logic
 ### reverse_counter
