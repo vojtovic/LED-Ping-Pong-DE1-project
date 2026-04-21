@@ -15,6 +15,7 @@ Component bin2led converting binary number to code which turn on only 1 led.
 
 <div align="center">
   <img src="bin2led_tb.png" width="400" />
+ <figcaption>bin2led simulation</figcaption>
 </div>
 
 ### front_counter
