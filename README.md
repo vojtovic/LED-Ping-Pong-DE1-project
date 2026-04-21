@@ -25,12 +25,14 @@ Reset input (rst) are deleted output value and set it to 0.
 ### 3. reverse_counter
 Reverse couter is almost same as front counter except for one change. It counting "back", from 7 to 0. 
 <img src="reverse_counter_sim.png"/><br/>
- <i>Pic.1 Simulation of bin2led</i>
+ <i>Pic.2 Simulation of reverse_counter</i>
  
-### 4. control_logic
+### 4. control_logic (work in progress)
 This is the biggest component of this code. Propouse of this component is switching couters and sensing player imputs. 
 When front counter have on output value 7 (witch is maximum output value for this counter) the control logic reset front counter and start
 interval during witch user must push button. Result show rgb led (red or green). Next counting back counter and proces repeat. 
+<img src="control_logic.png"/><br/>
+ <i>Pic.3 Simulation of control_logic</i>
 
 
 
