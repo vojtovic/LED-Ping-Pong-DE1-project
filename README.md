@@ -11,7 +11,14 @@
 
  ## Components
 ### bin2led
-converts input from counter into led position
+Component bin2led converting binary number to code which turn on only 1 led.
+
+### front_counter
+This component couting input impulses. If on the inputs clk and en are both on high level , then the output signal are increased by 1.
+Reset input (rst) are deleted output value and set it to 0.
+
+### reverse_counter
+Reverse couter is almost same as front counter except for one change. It counting "back", from 7 to 0. 
 
 <div align="center">
   <img src="bin2led_tb.png" width="400" />
