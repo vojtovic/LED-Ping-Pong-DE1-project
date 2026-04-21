@@ -14,8 +14,8 @@
 Component bin2led converting binary number to code which turn on only 1 led.
 
 <div align="center">
-  <img src="bin2led_tb.png" width="400" alt="Stručný popis pre čítačky"/>
- 
+  <img src="bin2led_tb.png" width="400"/><br/>
+ <i>Popis: Simulácia testbenchu pre bin2led modul</i>
 </div>
 
 ### front_counter
