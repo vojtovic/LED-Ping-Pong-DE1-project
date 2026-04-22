@@ -1,7 +1,0 @@
-Time resolution is 1 ps
-Error: Hit must be one clock pulse
-Time: 180 ns  Iteration: 0  Process: /control_logic_tb/p_stim  File: C:/Users/vojto/Documents/skola/de1/project/LED-Ping-Pong-DE1-project/control_logic_project/sim/control_logic_tb.vhd
-Error: Hit must be one clock pulse
-Time: 590 ns  Iteration: 0  Process: /control_logic_tb/p_stim  File: C:/Users/vojto/Documents/skola/de1/project/LED-Ping-Pong-DE1-project/control_logic_project/sim/control_logic_tb.vhd
-Note: control_logic_tb PASSED
-Time: 970 ns  Iteration: 0  Process: /control_logic_tb/p_stim  File: C:/Users/vojto/Documents/skola/de1/project/LED-Ping-Pong-DE1-project/control_logic_project/sim/control_logic_tb.vhd
