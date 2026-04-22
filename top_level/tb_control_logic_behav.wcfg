@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_control_logic_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_control_logic" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="572.001 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="302"></NameColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/tb_control_logic/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/btn_r" type="logic">
+      <obj_property name="ElementShortName">btn_r</obj_property>
+      <obj_property name="ObjectShortName">btn_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/btn_l" type="logic">
+      <obj_property name="ElementShortName">btn_l</obj_property>
+      <obj_property name="ObjectShortName">btn_l</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/fcnt" type="array">
+      <obj_property name="ElementShortName">fcnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fcnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/dut/front_counter_rst" type="logic">
+      <obj_property name="ElementShortName">front_counter_rst</obj_property>
+      <obj_property name="ObjectShortName">front_counter_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/bcnt" type="array">
+      <obj_property name="ElementShortName">bcnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">bcnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/dut/back_counter_rst" type="logic">
+      <obj_property name="ElementShortName">back_counter_rst</obj_property>
+      <obj_property name="ObjectShortName">back_counter_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/new_game" type="logic">
+      <obj_property name="ElementShortName">new_game</obj_property>
+      <obj_property name="ObjectShortName">new_game</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/dut/sig_cnt" type="other">
+      <obj_property name="ElementShortName">sig_cnt</obj_property>
+      <obj_property name="ObjectShortName">sig_cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_control_logic/dut/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+</wave_config>
