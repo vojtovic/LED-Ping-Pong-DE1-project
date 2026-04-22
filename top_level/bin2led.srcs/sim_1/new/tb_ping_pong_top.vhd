@@ -56,9 +56,13 @@ begin
 
         
         btn_r_in <= '1';
-        wait for 500 ns; 
+        wait for 100 ns; 
         btn_r_in <= '0';
 
+        wait for 400 ns;
+        btn_r_in <= '1';
+        wait for 100 ns; 
+        btn_r_in <= '0';
         
         wait for 2000 ns; 
 

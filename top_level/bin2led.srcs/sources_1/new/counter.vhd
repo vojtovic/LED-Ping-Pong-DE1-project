@@ -40,7 +40,7 @@ begin
             
             elsif en = '1' then  
                 if sig_cnt = C_MAX then
-                    sig_cnt <= 0;
+                    sig_cnt <= C_MAX;
                 else
                     sig_cnt <= sig_cnt + 1;
                 end if; 

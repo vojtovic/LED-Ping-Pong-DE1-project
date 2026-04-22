@@ -62,24 +62,27 @@ begin
                     next_state <= MOVE_RIGHT;
                 end if;
 
-            when MOVE_RIGHT =>
+            when MOVE_LEFT =>
                 back_counter_rst <= '0';
+                front_counter_rst <='1';
                 use_back_counter <= '1';
+                new_game <= '0';
                 if bcnt = "0000" then
-                    if btn_r = '1' and sig_cnt < G_MAX then
-                        next_state <= MOVE_LEFT;
+                    if btn_l = '1' and sig_cnt < G_MAX then
+                        next_state <= MOVE_RIGHT;
                         hit_g <= '1';
-                    elsif sig_cnt = G_MAX then
+                    elsif sig_cnt = G_MAX  then
                         next_state <= GAME_OVER;
                         hit_r <= '1';
                     end if;
                 end if;
 
-            when MOVE_LEFT =>
+            when MOVE_RIGHT =>
                 front_counter_rst <= '0';
+                back_counter_rst <= '1';
                 if fcnt = "1111" then
-                    if btn_l = '1' and sig_cnt < G_MAX then
-                        next_state <= MOVE_RIGHT;
+                    if btn_r = '1' and sig_cnt < G_MAX then
+                        next_state <= MOVE_LEFT;
                         hit_g <= '1';
                     elsif sig_cnt = G_MAX then
                         next_state <= GAME_OVER;
@@ -105,8 +108,8 @@ begin
                 sig_cnt <= 0;
             
             -- 2. Logika pre zónu odrazu
-            elsif (current_state = MOVE_RIGHT and bcnt = "0000") or 
-                  (current_state = MOVE_LEFT and fcnt = "1111") then
+            elsif (current_state = MOVE_RIGHT and fcnt = "1111") or 
+                  (current_state = MOVE_LEFT and bcnt = "0000") then
                 
                 -- Ak sme v zóne, počítame (ak tikne 'en')
                 if en = '1' then

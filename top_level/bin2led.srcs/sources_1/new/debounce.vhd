@@ -50,7 +50,7 @@ begin
     -- Clock enable instance
     ----------------------------------------------------------------
     clock_0 : clk_en
-        generic map ( G_MAX => 200_000)
+        generic map ( G_MAX => C_MAX)
         port map (
             clk => clk,
             rst => rst,
