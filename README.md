@@ -40,8 +40,13 @@ interval during witch user must push button. Result show rgb led (red or green).
  <i>Pic.3 Simulation of control_logic</i>
  </div>
 
+### 5. debounce
+When the switch is pressed, there are slight transitions between another states, until the switch settles into its new state.
+Debounce component eliminates this bounce efect. 
 
- 
+### 6. clk_en
+Clock enable creat slower signal from reference clock.
+
  ## Hardware
 
 - Nexys A7-50T
