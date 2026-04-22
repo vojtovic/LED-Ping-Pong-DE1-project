@@ -36,7 +36,7 @@ When front counter have on output value 7 (witch is maximum output value for thi
 interval during witch user must push button. Result show rgb led (red or green). Next counting back counter and proces repeat. 
 
 <div align="center">
-<img src="control_logic.png"/><br/>
+<img src="tb_control_logic.png"/><br/>
  <i>Pic.3 Simulation of control_logic</i>
  </div>
 
