@@ -7,7 +7,7 @@
 
  ## Top level schematic
  
- ![schema](schema.png)
+ ![schema](top_level_schema.png)
 
  ## Components
 ### 1. bin2led
