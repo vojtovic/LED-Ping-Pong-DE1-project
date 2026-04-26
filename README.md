@@ -42,6 +42,9 @@ interval during witch user must push button. Result show rgb led (red or green).
 
 
 #### Description of control logic simulation:
+ On first line is clk signal witch is main clock source. Signal named en interprete signal form clk_en module. It id slowed main clk signal. Press of buttons are presents btn_r and btn_l signals. For ressenting front counter and back counter (see top level schema) serving front_counter_rst and back_counter_rst. Output from these counters present fcnt and bcnt. In code is used valu named current_state witch signalising game status.
+
+
 
 ### 5. debounce
 When the switch is pressed, there are slight transitions between another states, until the switch settles into its new state.
