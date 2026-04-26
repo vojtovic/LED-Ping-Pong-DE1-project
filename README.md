@@ -5,6 +5,19 @@
  
 This project simulate s Ping-pong game on development board NEXYS A7-50T. The ball is presents by led witch is shining in actual momet. When ball ratch on border of led array, player must push button. For left edging of led array is assignment a left butto, equally for right is right butto. When player don't push button in time, he loos and signal rgb led turn on or turn green when payer push button in time. 
 
+
+| signal name | I/O | Size | Note |
+| :---: | :---: | :---: | :---: |
+| `clk` | input | 1 | system clock (internal) |
+| `reset` | input | 1 | system reset |
+| `btn_r` | input | 1 | right button|
+| `btn_l` | input | 1 | left button |
+| `led` | output | 15:0 | Výstup pre 7-segmentovku |
+| `led_g` | output | 1 | output for green segment rdb led |
+| `led_r` | output | 1 | output for red segment rdb led  |
+
+
+
  ## Top level schematic
  
  ![schema](top_level_schema.png)
@@ -42,7 +55,7 @@ interval during witch user must push button. Result show rgb led (red or green).
 
 
 #### Description of control logic simulation:
- On first line is clk signal witch is main clock source. Signal named en interprete signal form clk_en module. It id slowed main clk signal. Press of buttons are presents btn_r and btn_l signals. For ressenting front counter and back counter (see top level schema) serving front_counter_rst and back_counter_rst. Output from these counters present fcnt and bcnt. In code is used valu named current_state witch signalising game status.
+ On first line is clk signal witch is main clock source. Signal named en interprete signal form clk_en module. It id slowed main clk signal. Press of buttons are presents btn_r and btn_l signals. For ressenting front counter and back counter (see top level schema) serving front_counter_rst and back_counter_rst. Output from these counters present fcnt and bcnt. The signal new_game setting both counters to value witch presenting central led (center in led array) when game starting and sig_cnt presenting counter which determines time to push button. In code is used value named current_state witch signalising game status.
 
 
 
