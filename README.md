@@ -5,7 +5,7 @@
  
 This project simulate s Ping-pong game on development board NEXYS A7-50T. The ball is presents by led witch is shining in actual momet. When ball ratch on border of led array, player must push button. For left edging of led array is assignment a left butto, equally for right is right butto. When player don't push button in time, he loos and signal rgb led turn on or turn green when payer push button in time. 
 
-
+<div align="center">
 | signal name | I/O | Size | Note |
 | :---: | :---: | :---: | :---: |
 | `clk` | input | 1 | system clock (internal) |
@@ -16,6 +16,8 @@ This project simulate s Ping-pong game on development board NEXYS A7-50T. The ba
 | `led_g` | output | 1 | output for green segment rdb led |
 | `led_r` | output | 1 | output for red segment rdb led  |
 
+ <i>Tab.1 I/O table</i>
+</div>
 
 
  ## Top level schematic
