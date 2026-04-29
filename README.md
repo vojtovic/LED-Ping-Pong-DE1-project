@@ -10,12 +10,12 @@ This project simulate s Ping-pong game on development board NEXYS A7-50T. The ba
 | signal name | I/O | Size | Note |
 | :---: | :---: | :---: | :---: |
 | `clk` | input | 1 | system clock (internal) |
-| `reset` | input | 1 | system reset |
-| `btn_r` | input | 1 | right button|
-| `btn_l` | input | 1 | left button |
-| `led` | output | 15:0 | Výstup pre 7-segmentovku |
-| `led_g` | output | 1 | output for green segment rdb led |
-| `led_r` | output | 1 | output for red segment rdb led  |
+| `btnc` | input | 1 | system reset |
+| `btnr` | input | 1 | right button|
+| `btnl` | input | 1 | left button |
+| `led` | output | 15:0 | array of leds |
+| `led16_g` | output | 1 | output for green segment rdb led |
+| `led16_r` | output | 1 | output for red segment rdb led  |
 
  <i>Tab.1 I/O table</i>
 </div>
