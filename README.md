@@ -26,13 +26,14 @@ This project simulate s Ping-pong game on development board NEXYS A7-50T. The ba
  ![schema](top_level_schema.png)
 
  ## Components
-### 1. ![bin2led](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/bin2led_tb.vhd)
+### 1. bin2led
 Component bin2led converting binary number to code which turn on only 1 led.
 
 <div align="center">
   <img src="tb_bin2led.png" width="500"/><br/>
  <i>Pic.1 Simulation of bin2led</i>
 </div>
+![source code](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/bin2led_tb.vhd)
 
 ### 2. front_counter
 This component couting input impulses. If on the inputs clk and en are both on high level , then the output signal are increased by 1.
