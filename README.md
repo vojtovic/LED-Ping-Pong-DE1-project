@@ -34,7 +34,7 @@ Component bin2led converting binary number to code which turn on only 1 led.
  <i>Pic.1 Simulation of bin2led</i>
 </div>
 
-![source code](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/bin2led_tb.vhd)
+![source code](bin2led_tb.vhd)
 
 ### 2. front_counter
 This component couting input impulses. If on the inputs clk and en are both on high level , then the output signal are increased by 1.
