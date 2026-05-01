@@ -33,6 +33,7 @@ Component bin2led converting binary number to code which turn on only 1 led.
   <img src="tb_bin2led.png" width="500"/><br/>
  <i>Pic.1 Simulation of bin2led</i>
 </div>
+
 ![source code](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/bin2led_tb.vhd)
 
 ### 2. front_counter
