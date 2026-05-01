@@ -34,7 +34,7 @@ Component bin2led converting binary number to code which turn on only 1 led.
  <i>Pic.1 Simulation of bin2led</i>
 </div>
 
-![source code](bin2led_tb.vhd)
+![Simulation source code](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/bin2led_tb.vhd)
 
 ### 2. front_counter
 This component couting input impulses. If on the inputs clk and en are both on high level , then the output signal are increased by 1.
@@ -47,6 +47,8 @@ Reverse couter is almost same as front counter except for one change. It countin
 <img src="reverse_counter_sim.png"/><br/>
  <i>Pic.2 Simulation of reverse_counter</i>
  </div>
+
+![Simulation source code]()
  
 ### 4. control_logic (work in progress)
 This is the biggest component of this code. Propouse of this component is switching couters and sensing player imputs. 
@@ -58,6 +60,7 @@ interval during witch user must push button. Result show rgb led (red or green).
  <i>Pic.3 Simulation of control_logic</i>
  </div>
 
+![Simulation source code](https://github.com/vojtovic/LED-Ping-Pong-DE1-project/blob/main/top/top.srcs/sim_1/imports/new/tb_control_logic.vhd)
 
 #### Description of control logic simulation:
  On first line is clk signal witch is main clock source. Signal named en interprete signal form clk_en module. It id slowed main clk signal. Press of buttons are presents btn_r and btn_l signals. For ressenting front counter and back counter (see top level schema) serving front_counter_rst and back_counter_rst. Output from these counters present fcnt and bcnt. The signal new_game setting both counters to value witch presenting central led (center in led array) when game starting and sig_cnt presenting counter which determines time to push button. In code is used value named current_state witch signalising game status.
