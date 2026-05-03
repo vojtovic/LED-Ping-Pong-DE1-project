@@ -24,7 +24,7 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 
 ## Top level schematic
 
-![schema](top_level_schema.png)
+![schema](pictures/schematic_page-00011.JPG)
 
 ## Components
 
@@ -32,49 +32,87 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 Converts a 4-bit binary number to a 16-bit one-hot code – lights up exactly one LED corresponding to the ball position.
 
 <div align="center">
-  <img src="tb_bin2led.png" width="500"/><br/>
+  <img src="pictures/tb_bin2led.png" width="500"/><br/>
   <i>Pic.1 Simulation of bin2led</i>
 </div>
 
 ### 2. counter (front_counter)
 Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, resets to 0 on normal reset. Saturates at 15.
-
+<div align="center">
+  <img src="pictures/counter.png"/><br/>
+  <i>Pic.2 Simulation of reverse_counter</i>
+</div>
 ### 3. reverse_counter
 Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. Saturates at 0.
 
 <div align="center">
-  <img src="reverse_counter_sim.png"/><br/>
-  <i>Pic.2 Simulation of reverse_counter</i>
+  <img src="pictures/reverse_counter_sim.png"/><br/>
+  <i>Pic.3 Simulation of reverse_counter</i>
 </div>
 
 ### 4. control_logic
 Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER → START`. Controls which counter is active and which is reset. When the ball reaches an edge, a timer (`sig_cnt`, 0–10) starts counting clock-enable ticks. The player must press the correct button before the timer expires. Outputs `hit_g` on a successful hit and `hit_r` on a miss.
 
 <div align="center">
-  <img src="tb_control_logic.png"/><br/>
-  <i>Pic.3 Simulation of control_logic</i>
+  <img src="pictures/tb_control_logic.png"/><br/>
+  <i>Pic.4 Simulation of control_logic</i>
 </div>
 
 ### 5. debounce
 Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce from button presses and produces a single-cycle `btn_press` pulse on the rising edge.
 
+<div align="center">
+  <img src="pictures/debounce.png"/><br/>
+  <i>Pic.5 Simulation of debounce</i>
+</div>
+
 ### 6. clk_en
 Programmable clock divider. Generates a single-cycle clock-enable pulse every `G_MAX` clock cycles. Supports runtime speed override via the `max_val` input port.
+
+<div align="center">
+  <img src=""/><br/>
+  <i>Pic.6 Simulation of clk_en</i>
+</div>
 
 ### 7. score_counter
 BCD counter for the score. Each successful hit (`hit_g`) increments the score by 1. Each nibble represents one decimal digit (0–9), with carry propagation from ones to tens to hundreds to thousands.
 
+<div align="center">
+  <img src="pictures/score_counter.png"/><br/>
+  <i>Pic.7 Simulation of score_counter</i>
+</div>
+
 ### 8. speed_control
 Controls ball speed. Starts at `G_DEFAULT` (7 000 000 clock cycles ≈ 70 ms per step at 100 MHz). After each hit, the speed decreases by ~6.7% (`speed / 15`). Resets to default on new game.
+
+<div align="center">
+  <img src="pictures/speed_control.png"/><br/>
+  <i>Pic.8 Simulation of speed_control</i>
+</div>
 
 ### 9. led_pulse
 Extends a single-cycle trigger pulse into a visible LED blink. Loads a 4-bit counter with 10 on trigger and counts down on each clock-enable tick, keeping the output high until the counter reaches 0. Used for the green hit LED.
 
+<div align="center">
+  <img src="pictures/led_pulse.png"/><br/>
+  <i>Pic.9 Simulation of led_pulse</i>
+</div>
+
 ### 10. display_driver
 Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Contains its own `clk_en` instance (G_CLK_DIV = 80 000 → ~1.25 kHz refresh rate) and a `bin2seg` decoder for segment encoding.
 
+<div align="center">
+  <img src=""/><br/>
+  <i>Pic.10 Simulation of display_driver</i>
+</div>
+
 ### 11. bin2seg
 Combinational lookup table converting a 4-bit value (0–F) to active-low 7-segment encoding (`seg(6)=g … seg(0)=a`).
+
+<div align="center">
+  <img src=""/><br/>
+  <i>Pic.11 Simulation of bin2seg</i>
+</div>
 
 ## Hardware
 
