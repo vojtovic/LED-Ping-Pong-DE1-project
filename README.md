@@ -42,6 +42,7 @@ Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, re
   <img src="pictures/counter.png"/><br/>
   <i>Pic.2 Simulation of reverse_counter</i>
 </div>
+
 ### 3. reverse_counter
 Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. Saturates at 0.
 
