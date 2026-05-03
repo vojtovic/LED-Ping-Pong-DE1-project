@@ -107,13 +107,6 @@ Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Conta
   <i>Pic.10 Simulation of display_driver</i>
 </div>
 
-### 11. bin2seg
-Combinational lookup table converting a 4-bit value (0–F) to active-low 7-segment encoding (`seg(6)=g … seg(0)=a`).
-
-<div align="center">
-  <img src=""/><br/>
-  <i>Pic.11 Simulation of bin2seg</i>
-</div>
 
 ## Hardware
 
