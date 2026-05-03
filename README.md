@@ -62,7 +62,7 @@ Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER �
 Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce from button presses and produces a single-cycle `btn_press` pulse on the rising edge.
 
 <div align="center">
-  <img src="pictures/debounce.png"/><br/>
+  <img src="pictures/tb_debounce.png"/><br/>
   <i>Pic.5 Simulation of debounce</i>
 </div>
 
