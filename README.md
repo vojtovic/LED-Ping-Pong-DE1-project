@@ -72,7 +72,7 @@ Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce
 Programmable clock divider. Generates a single-cycle clock-enable pulse every `G_MAX` clock cycles. Supports runtime speed override via the `max_val` input port.
 
 <div align="center">
-  <img src=""/><br/>
+  <img src="pictures/ctb_clk_en.png"/><br/>
   <i>Pic.6 Simulation of clk_en</i>
 </div>
 
