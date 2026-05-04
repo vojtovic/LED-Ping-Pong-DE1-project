@@ -39,7 +39,7 @@ Converts a 4-bit binary number to a 16-bit one-hot code – lights up exactly on
 ### 2. counter (front_counter)
 Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, resets to 0 on normal reset. Saturates at 15.
 <div align="center">
-  <img src="pictures/counter.png"/><br/>
+  <img src="pictures/tb_counter.png"/><br/>
   <i>Pic.2 Simulation of reverse_counter</i>
 </div>
 
@@ -47,7 +47,7 @@ Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, re
 Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. Saturates at 0.
 
 <div align="center">
-  <img src="pictures/reverse_counter_sim.png"/><br/>
+  <img src="pictures/tb_reverse_counter.png"/><br/>
   <i>Pic.3 Simulation of reverse_counter</i>
 </div>
 
