@@ -47,7 +47,7 @@ Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, re
 Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. Saturates at 0.
 
 <div align="center">
-  <img src="pictures/tb_reverse_counter.png"/><br/>
+  <img src="pictures/tb_revrese_counter.png"/><br/>
   <i>Pic.3 Simulation of reverse_counter</i>
 </div>
 
