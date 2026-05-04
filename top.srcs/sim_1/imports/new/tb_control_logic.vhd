@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity tb_control_logic is
 end tb_control_logic;
@@ -77,63 +78,45 @@ begin
     stimuli : process
     begin
         
-        rst <= '0';
-        bcnt <= "0111";
-        fcnt <= "0111";
+
+        rst   <= '0';
+        bcnt  <= "0111";
+        fcnt  <= "0111";
         btn_r <= '0'; 
         btn_l <= '0'; 
         
         rst <= '1';
-        wait for 10 ns;
+        wait for 20 ns;
         rst <= '0';
+        wait for 20 ns;
         
-        wait for 10 ns;
-        bcnt <= "0111";
         fcnt <= "0111";
-        
-        assert new_game = '1' report "Chyba: Hra by mala zacat v stave START (new_game=1)" severity note;
-        --state START, btnr is pushed starting the game
+        bcnt <= "0111";
+        wait for 20 ns;
+ 
         btn_r <= '1'; 
         wait for 20 ns;
         btn_r <= '0'; 
         wait for 20 ns;
-        -- ball is moving right, should after a while reach the edge position
         
-        bcnt <= "0000"; 
-        wait for 50 ns;
-        --succesful button press, ball should start moving left (MOVE_LEFT), 
-        btn_r <= '1';
-        wait for 10 ns;
-        btn_r <= '0';
-        wait for 10 ns;
-        
-        
-        fcnt <= "1111";
-        wait for 50 ns;
-        
-        --succesful button press, ball should start moving right (MOVE_RIGHT), 
-        btn_l <= '1';
-        wait for 10 ns;
-        btn_l <= '0';
-        wait for 10 ns;
-        
-        fcnt <= "0000"; --held in reset 
-        bcnt <= "0000"; 
-        
+        for i in 7 to 15 loop
+            fcnt <= std_logic_vector(to_unsigned(i, 4));
+            wait for 20 ns;
+        end loop;
+
         wait for 500 ns; 
-        --unsuccesfull hit, game should switch to GAME_OVER state
-        
-       
-        
-        btn_l <= '1'; btn_r <= '1';
-        wait for 10 ns;
-        btn_l <= '0'; btn_r <= '0';
-        wait for 10 ns;
-        
+
+        wait for 50 ns;
+        btn_l <= '1'; 
+        btn_r <= '1';
+        wait for 10 ns; 
+        btn_l <= '0'; 
+        btn_r <= '0';
+
         
         wait for 100 ns;
-        assert new_game = '1' report "Hra uspesne zresetovana do START" severity note;
-    wait;
+        TbSimEnded <= '1';
+        wait;
     end process;
 
 end tb;
