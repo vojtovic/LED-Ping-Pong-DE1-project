@@ -55,8 +55,9 @@ Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. S
 Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER → START`. Controls which counter is active and which is reset. When the ball reaches an edge, a timer (`sig_cnt`, 0–10) starts counting clock-enable ticks. The player must press the correct button before the timer expires. Outputs `hit_g` on a successful hit and `hit_r` on a miss.
 
 <div align="center">
-  <img src="pictures/tb_control_logic.png"/><br/>
-  <i>Pic.4 Simulation of control_logic</i>
+  <img src="pictures/tb_control_1.png"/><br/>
+  <img src="pictures/tb_control_2.png"/><br/>
+  <i>Pic.4,5 Simulation of control_logic</i>
 </div>
 
 ### 5. debounce
