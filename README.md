@@ -33,6 +33,10 @@ Used components include: [bin to led](#1-bin2led), [counter](#2-counter), [rever
 
 
 ### [Testbench](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
+<div align="center">
+  <img src="pictures/tb_ping_pong_top.png"/><br/>
+  <i>Pic.1 Simulation top level</i>
+</div>
 
 ## Components
 
