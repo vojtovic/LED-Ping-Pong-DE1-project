@@ -77,7 +77,7 @@ Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce
 ### [6. clk_en](top.srcs/sources_1/imports/sources_1/new/clk_en.vhd)
 Programmable clock divider. Generates a single-cycle clock-enable pulse every `G_MAX` clock cycles. Supports runtime speed override via the `max_val` input port.
 
-[Testbench:](top.srcs/sim_1/imports/new/tb_.vhd)
+[Testbench:](top.srcs/sim_1/imports/new/tb_clk_en.vhd)
 <div align="center">
   <img src="pictures/tb_clk_en.png"/><br/>
   <i>Pic.6 Simulation of clk_en</i>
@@ -86,7 +86,7 @@ Programmable clock divider. Generates a single-cycle clock-enable pulse every `G
 ### [7. score_counter](top.srcs/sources_1/imports/sources_1/new/score_counter.vhd)
 BCD counter for the score. Each successful hit (`hit_g`) increments the score by 1. Each nibble represents one decimal digit (0–9), with carry propagation from ones to tens to hundreds to thousands.
 
-[Testbench:](top.srcs/sim_1/imports/new/tb_score_counterb.vhd)
+[Testbench:](top.srcs/sim_1/imports/new/tb_score_counter.vhd)
 <div align="center">
   <img src="pictures/score_counter.png"/><br/>
   <i>Pic.7 Simulation of score_counter</i>
@@ -104,6 +104,7 @@ Controls ball speed. Starts at `G_DEFAULT` (7 000 000 clock cycles ≈ 70 ms per
 ### [9. led_pulse](top.srcs/sources_1/imports/sources_1/new/led_pulse.vhd)
 Extends a single-cycle trigger pulse into a visible LED blink. Loads a 4-bit counter with 10 on trigger and counts down on each clock-enable tick, keeping the output high until the counter reaches 0. Used for the green hit LED.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_led_pulse.vhd)
 <div align="center">
   <img src="pictures/led_pulse.png"/><br/>
   <i>Pic.9 Simulation of led_pulse</i>
