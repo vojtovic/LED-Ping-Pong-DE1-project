@@ -28,7 +28,7 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 ![schema](pictures/schematic_page-00011.JPG)
 
 ### Components
-Used components include: [bin2led](#1-bin2led), [counter](#2-counter), [reverse counter](#3-reverse counter), [control logic](#4-control logic)
+Used components include: [bin2led](#1-bin2led), [counter](#2-counter), [reverse counter](#3-reverse-counter), [control logic](#4-control-logic)
 
 
 ### [Testbench](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
