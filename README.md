@@ -22,7 +22,7 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 <i>Tab.1 I/O table</i>
 </div>
 
-## Top level 
+## [Top level](top.srcs/sources_1/imports/sources_1/new/ping_pong_top.vhd) 
 ### Schematic
 ![schema](pictures/schematic_page-00011.JPG)
 
@@ -31,7 +31,7 @@ Used components include: [bin to led](#1-bin2led), [counter](#2-counter), [rever
 [score counter](#7-score-counter), [speed control](#8-speed-control), [led pulse](#9-led-pulse), [display driver](#10-display-driver), [bin to seg](top.srcs/sources_1/imports/sources_1/new/bin2seg.vhd)
 
 
-### [Testbench](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
+### [Testbench:](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
 <div align="center">
   <img src="pictures/top_1.png"/><br/>
   <img src="pictures/top_2.png"/><br/>
