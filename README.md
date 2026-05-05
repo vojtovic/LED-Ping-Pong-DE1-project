@@ -28,7 +28,7 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 
 ## Components
 
-### [1. bin2led](top.src/source_1/imports/sources_1/new/bin2led.vhd)
+### [1. bin2led](top.srcs/sources_1/imports/sources_1/new/bin2led.vhd)
 Converts a 4-bit binary number to a 16-bit one-hot code – lights up exactly one LED corresponding to the ball position.
 
 <div align="center">
