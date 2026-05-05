@@ -47,7 +47,7 @@ begin
     
     p_next_state_logic : process(current_state, btn_r, btn_l, bcnt, fcnt, sig_cnt, en)
     begin
-        -- Defaultné hodnoty výstupov (aby nevznikali latche)
+      
         next_state <= current_state;
         hit_r <= '0';
         hit_g <= '0';
@@ -100,19 +100,17 @@ begin
         end case;
     end process;
 
-    -- Samostatný proces pre sig_cnt (lebo sig_cnt je register)
     p_timer : process(clk)
     begin
         if rising_edge(clk) then
-            -- 1. Hard reset alebo stav START vždy nulujú počítadlo
             if rst = '1' or current_state = START then
                 sig_cnt <= 0;
             
-            -- 2. Logika pre zónu odrazu
+
             elsif (current_state = MOVE_RIGHT and fcnt = "1111") or 
                   (current_state = MOVE_LEFT and bcnt = "0000") then
                 
-                -- Ak sme v zóne, počítame (ak tikne 'en')
+
                 if en = '1' then
                     if sig_cnt < G_MAX then
                         sig_cnt <= sig_cnt + 1;
@@ -120,7 +118,7 @@ begin
                 end if;
     
             else
-                -- 3. Ak loptička NIE JE na okraji, sig_cnt MUSÍ byť 0
+
                 sig_cnt <= 0;
             end if;
         end if;
