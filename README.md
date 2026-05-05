@@ -108,7 +108,7 @@ Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Conta
   <i>Pic.10 Simulation of display_driver</i>
 </div>
 
-
+## Top level 
 ## Hardware
 
 - Nexys A7-50T
