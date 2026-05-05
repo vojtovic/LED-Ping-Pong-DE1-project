@@ -127,7 +127,7 @@ Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Conta
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_display_driver.vhd)
 <div align="center">
-  <img src=""/><br/>
+  <img src="pictures/tb_display_driver.png"/><br/>
   <i>Pic.10 Simulation of display_driver</i>
 </div>
 
