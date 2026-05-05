@@ -4,7 +4,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;  
 
--------------------------------------------------
 
 entity counter is
     generic ( G_BITS : positive := 3 );  
@@ -17,7 +16,6 @@ entity counter is
     );
 end entity counter;
 
--------------------------------------------------
 
 architecture Behavioral of counter is
 
