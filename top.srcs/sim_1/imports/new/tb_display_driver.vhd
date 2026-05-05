@@ -13,8 +13,8 @@ architecture tb of tb_display_driver is
     signal seg   : std_logic_vector(6 downto 0);
     signal anode : std_logic_vector(7 downto 0);
 
-    constant CLK_PERIOD : time := 10 ps;
-    constant CYCLE      : time := 160 ps;
+    constant CLK_PERIOD : time := 10000 ps;
+    constant CYCLE      : time := 160000 ps;
     signal done         : std_logic := '0';
 
     -- which digit is on right now (0-3)
@@ -80,28 +80,20 @@ begin
     begin
         rst  <= '1';
         data <= x"0000";
-        wait for 100 ps;
+        wait for 3 * CLK_PERIOD;
         rst  <= '0';
 
         -- show 0
         data <= x"0000";
-        wait for 3 * CYCLE;
+        wait for 2 * CYCLE;
 
         -- show 1
         data <= x"0001";
-        wait for 3 * CYCLE;
+        wait for 2 * CYCLE;
 
-        -- show 2
-        data <= x"0002";
-        wait for 3 * CYCLE;
-
-        -- show 3
-        data <= x"0003";
-        wait for 3 * CYCLE;
-
-        -- show 4
-        data <= x"0004";
-        wait for 3 * CYCLE;
+        -- show 10
+        data <= x"0010";
+        wait for 2 * CYCLE;
 
         done <= '1';
         wait;
