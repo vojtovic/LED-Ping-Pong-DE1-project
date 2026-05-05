@@ -30,7 +30,8 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 
 ### [1. bin2led](top.srcs/sources_1/imports/sources_1/new/bin2led.vhd)
 Converts a 4-bit binary number to a 16-bit one-hot code – lights up exactly one LED corresponding to the ball position.
-[Testbench:](top.srcs/sim_1/imports/new/bin2led_tb.vhd)
+
+[Testbench:](top.srcs/sim_1/imports/new/tb_bin2led.vhd)
 <div align="center">
   <img src="pictures/tb_bin2led.png"/><br/>
   <i>Pic.1 Simulation of bin2led</i>
@@ -38,6 +39,8 @@ Converts a 4-bit binary number to a 16-bit one-hot code – lights up exactly on
 
 ### [2. counter](top.srcs/sources_1/imports/sources_1/new/counter.vhd)
 Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, resets to 0 on normal reset. Saturates at 15.
+
+[Testbench:](top.srcs/sim_1/imports/new/tb_counter.vhd)
 <div align="center">
   <img src="pictures/tb_counter.png"/><br/>
   <i>Pic.2 Simulation of reverse_counter</i>
@@ -46,6 +49,7 @@ Counts up from 0 to 15 (ball moving right). Resets to 7 (centre) on new game, re
 ### [3. reverse counter](top.srcs/sources_1/imports/sources_1/new/reverse_counter.vhd)
 Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. Saturates at 0.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_reverse_counter.vhd)
 <div align="center">
   <img src="pictures/tb_revrese_counter.png"/><br/>
   <i>Pic.3 Simulation of reverse_counter</i>
@@ -54,6 +58,7 @@ Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. S
 ### [4. control_logic](top.srcs/sources_1/imports/sources_1/new/control_logic.vhd)
 Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER → START`. Controls which counter is active and which is reset. When the ball reaches an edge, a timer (`sig_cnt`, 0–10) starts counting clock-enable ticks. The player must press the correct button before the timer expires. Outputs `hit_g` on a successful hit and `hit_r` on a miss.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_control_logic.vhd)
 <div align="center">
   <img src="pictures/tb_control_1.png"/><br/>
   <img src="pictures/tb_control_2.png"/><br/>
@@ -63,6 +68,7 @@ Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER �
 ### [5. debounce](top.srcs/sources_1/imports/sources_1/new/debounce.vhd)
 Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce from button presses and produces a single-cycle `btn_press` pulse on the rising edge.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_debounce.vhd)
 <div align="center">
   <img src="pictures/tb_debounce.png"/><br/>
   <i>Pic.5 Simulation of debounce</i>
@@ -71,6 +77,7 @@ Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce
 ### [6. clk_en](top.srcs/sources_1/imports/sources_1/new/clk_en.vhd)
 Programmable clock divider. Generates a single-cycle clock-enable pulse every `G_MAX` clock cycles. Supports runtime speed override via the `max_val` input port.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_.vhd)
 <div align="center">
   <img src="pictures/tb_clk_en.png"/><br/>
   <i>Pic.6 Simulation of clk_en</i>
@@ -79,6 +86,7 @@ Programmable clock divider. Generates a single-cycle clock-enable pulse every `G
 ### [7. score_counter](top.srcs/sources_1/imports/sources_1/new/score_counter.vhd)
 BCD counter for the score. Each successful hit (`hit_g`) increments the score by 1. Each nibble represents one decimal digit (0–9), with carry propagation from ones to tens to hundreds to thousands.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_score_counterb.vhd)
 <div align="center">
   <img src="pictures/score_counter.png"/><br/>
   <i>Pic.7 Simulation of score_counter</i>
@@ -87,6 +95,7 @@ BCD counter for the score. Each successful hit (`hit_g`) increments the score by
 ### [8. speed_control](top.srcs/sources_1/imports/sources_1/new/speed_control.vhd)
 Controls ball speed. Starts at `G_DEFAULT` (7 000 000 clock cycles ≈ 70 ms per step at 100 MHz). After each hit, the speed decreases by ~6.7% (`speed / 15`). Resets to default on new game.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_speed_control.vhd)
 <div align="center">
   <img src="pictures/speed_control.png"/><br/>
   <i>Pic.8 Simulation of speed_control</i>
@@ -103,6 +112,7 @@ Extends a single-cycle trigger pulse into a visible LED blink. Loads a 4-bit cou
 ### [10. display_driver](top.srcs/sources_1/imports/sources_1/new/display_driver.vhd)
 Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Contains its own `clk_en` instance (G_CLK_DIV = 80 000 → ~1.25 kHz refresh rate) and a `bin2seg` decoder for segment encoding.
 
+[Testbench:](top.srcs/sim_1/imports/new/tb_display_driver.vhd)
 <div align="center">
   <img src=""/><br/>
   <i>Pic.10 Simulation of display_driver</i>
