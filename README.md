@@ -11,11 +11,11 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 | :---: | :---: | :---: | :---: |
 | `clk` | input | 1 | system clock (100 MHz) |
 | `rst` | input | 1 | system reset (centre button) |
-| `btnr` | input | 1 | right button |
-| `btnl` | input | 1 | left button |
+| `btn_r_in` | input | 1 | right button |
+| `btn_l_in` | input | 1 | left button |
 | `led` | output | 15:0 | LED array (ball position) |
-| `led17_g` | output | 1 | green LED (successful hit) |
-| `led16_r` | output | 1 | red LED (miss / game over) |
+| `led_g` | output | 1 | green LED (successful hit) |
+| `led_r` | output | 1 | red LED (miss / game over) |
 | `seg` | output | 6:0 | 7-segment display segments |
 | `anode` | output | 7:0 | 7-segment display anodes |
 
@@ -23,7 +23,6 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 </div>
 
 ## Top level 
-
 ### Schematic
 ![schema](pictures/schematic_page-00011.JPG)
 
@@ -34,7 +33,9 @@ Used components include: [bin to led](#1-bin2led), [counter](#2-counter), [rever
 
 ### [Testbench](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
 <div align="center">
-  <img src="pictures/tb_ping_pong_top.png"/><br/>
+  <img src="pictures/top_1.png"/><br/>
+  <img src="pictures/top_2.png"/><br/>
+  <img src="pictures/top_3.png"/><br/>
   <i>Pic.1 Simulation top level</i>
 </div>
 
@@ -127,7 +128,7 @@ Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Conta
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_display_driver.vhd)
 <div align="center">
-  <img src="pictures/tb_display_driver.png"/><br/>
+  <img src="pictures/display_driver.png"/><br/>
   <i>Pic.10 Simulation of display_driver</i>
 </div>
 
