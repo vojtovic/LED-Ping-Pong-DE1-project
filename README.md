@@ -28,7 +28,8 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 ![schema](pictures/schematic_page-00011.JPG)
 
 ### Components
-Used components include: [bin2led](#1-bin2led), [counter](#2-counter), [reverse counter](#3-reverse-counter), [control logic](#4-control-logic)
+Used components include: [bin to led](#1-bin2led), [counter](#2-counter), [reverse counter](#3-reverse-counter), [control logic](#4-control-logic), [debounce](#5-debounce), [clk en](#6-clk_en),
+[score counter](#7-score-counter), [speed control](#8-speed-control), [led pulse](#9-led-pulse), [display driver](#10-display-driver), [bin to seg](top.srcs/sources_1/imports/sources_1/new/bin2seg.vhd)
 
 
 ### [Testbench](top.srcs/sim_1/imports/new/tb_ping_pong_top.vhd)
@@ -62,7 +63,7 @@ Counts down from 15 to 0 (ball moving left). Resets to 7 (centre) on new game. S
   <i>Pic.3 Simulation of reverse_counter</i>
 </div>
 
-### [4. control_logic](top.srcs/sources_1/imports/sources_1/new/control_logic.vhd)
+### [4. control logic](top.srcs/sources_1/imports/sources_1/new/control_logic.vhd)
 Moore FSM with four states: `START → MOVE_RIGHT ↔ MOVE_LEFT → GAME_OVER → START`. Controls which counter is active and which is reset. When the ball reaches an edge, a timer (`sig_cnt`, 0–10) starts counting clock-enable ticks. The player must press the correct button before the timer expires. Outputs `hit_g` on a successful hit and `hit_r` on a miss.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_control_logic.vhd)
@@ -81,7 +82,7 @@ Two-stage synchroniser with a 4-bit shift register. Eliminates mechanical bounce
   <i>Pic.5 Simulation of debounce</i>
 </div>
 
-### [6. clk_en](top.srcs/sources_1/imports/sources_1/new/clk_en.vhd)
+### [6. clk en](top.srcs/sources_1/imports/sources_1/new/clk_en.vhd)
 Programmable clock divider. Generates a single-cycle clock-enable pulse every `G_MAX` clock cycles. Supports runtime speed override via the `max_val` input port.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_clk_en.vhd)
@@ -90,7 +91,7 @@ Programmable clock divider. Generates a single-cycle clock-enable pulse every `G
   <i>Pic.6 Simulation of clk_en</i>
 </div>
 
-### [7. score_counter](top.srcs/sources_1/imports/sources_1/new/score_counter.vhd)
+### [7. score counter](top.srcs/sources_1/imports/sources_1/new/score_counter.vhd)
 BCD counter for the score. Each successful hit (`hit_g`) increments the score by 1. Each nibble represents one decimal digit (0–9), with carry propagation from ones to tens to hundreds to thousands.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_score_counter.vhd)
@@ -99,7 +100,7 @@ BCD counter for the score. Each successful hit (`hit_g`) increments the score by
   <i>Pic.7 Simulation of score_counter</i>
 </div>
 
-### [8. speed_control](top.srcs/sources_1/imports/sources_1/new/speed_control.vhd)
+### [8. speed control](top.srcs/sources_1/imports/sources_1/new/speed_control.vhd)
 Controls ball speed. Starts at `G_DEFAULT` (7 000 000 clock cycles ≈ 70 ms per step at 100 MHz). After each hit, the speed decreases by ~6.7% (`speed / 15`). Resets to default on new game.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_speed_control.vhd)
@@ -108,7 +109,7 @@ Controls ball speed. Starts at `G_DEFAULT` (7 000 000 clock cycles ≈ 70 ms per
   <i>Pic.8 Simulation of speed_control</i>
 </div>
 
-### [9. led_pulse](top.srcs/sources_1/imports/sources_1/new/led_pulse.vhd)
+### [9. led pulse](top.srcs/sources_1/imports/sources_1/new/led_pulse.vhd)
 Extends a single-cycle trigger pulse into a visible LED blink. Loads a 4-bit counter with 10 on trigger and counts down on each clock-enable tick, keeping the output high until the counter reaches 0. Used for the green hit LED.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_led_pulse.vhd)
@@ -117,7 +118,7 @@ Extends a single-cycle trigger pulse into a visible LED blink. Loads a 4-bit cou
   <i>Pic.9 Simulation of led_pulse</i>
 </div>
 
-### [10. display_driver](top.srcs/sources_1/imports/sources_1/new/display_driver.vhd)
+### [10. display driver](top.srcs/sources_1/imports/sources_1/new/display_driver.vhd)
 Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Contains its own `clk_en` instance (G_CLK_DIV = 80 000 → ~1.25 kHz refresh rate) and a `bin2seg` decoder for segment encoding.
 
 [Testbench:](top.srcs/sim_1/imports/new/tb_display_driver.vhd)
