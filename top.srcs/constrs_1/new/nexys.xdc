@@ -1,5 +1,5 @@
 # =================================================
-# Nexys A7-50T - Constraints for ping_pong_top
+# Nexys A7-50T - General Constraints File
 # Based on https://github.com/Digilent/digilent-xdc
 # =================================================
 
@@ -10,13 +10,14 @@ set_property -dict { PACKAGE_PIN E3 IOSTANDARD LVCMOS33 } [get_ports {clk}];
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports {clk}];
 
 # -----------------------------------------------
-# Push buttons (active-high on Nexys A7)
+# Push buttons
 # -----------------------------------------------
-set_property -dict { PACKAGE_PIN N17 IOSTANDARD LVCMOS33 } [get_ports {rst}];
-set_property -dict { PACKAGE_PIN P17 IOSTANDARD LVCMOS33 } [get_ports {btn_l_in}];
-set_property -dict { PACKAGE_PIN M17 IOSTANDARD LVCMOS33 } [get_ports {btn_r_in}];
-# set_property -dict { PACKAGE_PIN M18 IOSTANDARD LVCMOS33 } [get_ports {btnu}];
-# set_property -dict { PACKAGE_PIN P18 IOSTANDARD LVCMOS33 } [get_ports {btnd}];
+set_property -dict { PACKAGE_PIN N17 IOSTANDARD LVCMOS33 } [get_ports {btnc}];
+set_property -dict { PACKAGE_PIN M18 IOSTANDARD LVCMOS33 } [get_ports {btnu}];
+set_property -dict { PACKAGE_PIN P17 IOSTANDARD LVCMOS33 } [get_ports {btnl}];
+set_property -dict { PACKAGE_PIN M17 IOSTANDARD LVCMOS33 } [get_ports {btnr}];
+set_property -dict { PACKAGE_PIN P18 IOSTANDARD LVCMOS33 } [get_ports {btnd}];
+
 
 # -----------------------------------------------
 # LEDs
@@ -40,42 +41,41 @@ set_property PACKAGE_PIN V11 [get_ports {led[15]}];
 set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
 
 # -----------------------------------------------
-# Seven-segment cathodes CA..CG (active-low)
-# seg(6)=g, seg(5)=f, seg(4)=e, seg(3)=d, seg(2)=c, seg(1)=b, seg(0)=a
+# Seven-segment cathodes CA..CG + DP (active-low)
+# seg[6]=A ... seg[0]=G
 # -----------------------------------------------
-set_property PACKAGE_PIN T10 [get_ports {seg[0]}]; # CA (segment a)
-set_property PACKAGE_PIN R10 [get_ports {seg[1]}]; # CB (segment b)
-set_property PACKAGE_PIN K16 [get_ports {seg[2]}]; # CC (segment c)
-set_property PACKAGE_PIN K13 [get_ports {seg[3]}]; # CD (segment d)
-set_property PACKAGE_PIN P15 [get_ports {seg[4]}]; # CE (segment e)
-set_property PACKAGE_PIN T11 [get_ports {seg[5]}]; # CF (segment f)
-set_property PACKAGE_PIN L18 [get_ports {seg[6]}]; # CG (segment g)
-set_property IOSTANDARD LVCMOS33 [get_ports {seg[*]}]
+set_property PACKAGE_PIN T10 [get_ports {seg[6]}]; # CA
+set_property PACKAGE_PIN R10 [get_ports {seg[5]}]; # CB
+set_property PACKAGE_PIN K16 [get_ports {seg[4]}]; # CC
+set_property PACKAGE_PIN K13 [get_ports {seg[3]}]; # CD
+set_property PACKAGE_PIN P15 [get_ports {seg[2]}]; # CE
+set_property PACKAGE_PIN T11 [get_ports {seg[1]}]; # CF
+set_property PACKAGE_PIN L18 [get_ports {seg[0]}]; # CG
+set_property PACKAGE_PIN H15 [get_ports {dp}];
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[*] dp}]
 
 # -----------------------------------------------
 # Seven-segment anodes AN7..AN0 (active-low)
 # -----------------------------------------------
-set_property PACKAGE_PIN J17 [get_ports {anode[0]}];
-set_property PACKAGE_PIN J18 [get_ports {anode[1]}];
-set_property PACKAGE_PIN T9  [get_ports {anode[2]}];
-set_property PACKAGE_PIN J14 [get_ports {anode[3]}];
-set_property PACKAGE_PIN P14 [get_ports {anode[4]}];
-set_property PACKAGE_PIN T14 [get_ports {anode[5]}];
-set_property PACKAGE_PIN K2  [get_ports {anode[6]}];
-set_property PACKAGE_PIN U13 [get_ports {anode[7]}];
-set_property IOSTANDARD LVCMOS33 [get_ports {anode[*]}]
+set_property PACKAGE_PIN J17 [get_ports {an[0]}];
+set_property PACKAGE_PIN J18 [get_ports {an[1]}];
+set_property PACKAGE_PIN T9  [get_ports {an[2]}];
+set_property PACKAGE_PIN J14 [get_ports {an[3]}];
+set_property PACKAGE_PIN P14 [get_ports {an[4]}];
+set_property PACKAGE_PIN T14 [get_ports {an[5]}];
+set_property PACKAGE_PIN K2  [get_ports {an[6]}];
+set_property PACKAGE_PIN U13 [get_ports {an[7]}];
+set_property IOSTANDARD LVCMOS33 [get_ports {an[*]}]
 
 # -----------------------------------------------
-# RGB LED16 — hit/miss indicator
+# RGB LEDs
 # -----------------------------------------------
-set_property -dict { PACKAGE_PIN N15 IOSTANDARD LVCMOS33 } [get_ports {led_r}];
-set_property -dict { PACKAGE_PIN M16 IOSTANDARD LVCMOS33 } [get_ports {led_g}];
-# set_property -dict { PACKAGE_PIN R12 IOSTANDARD LVCMOS33 } [get_ports {led16_b}];
+set_property -dict { PACKAGE_PIN N15 IOSTANDARD LVCMOS33 } [get_ports {led16_r}];
+set_property -dict { PACKAGE_PIN M16 IOSTANDARD LVCMOS33 } [get_ports {led16_g}];
+set_property -dict { PACKAGE_PIN R12 IOSTANDARD LVCMOS33 } [get_ports {led16_b}];
 
-# -----------------------------------------------
-# Unused peripherals (active constraints removed)
-# -----------------------------------------------
-# Switches:     sw[15:0]   — not used
-# RGB LED17:    N16/R11/G14 — not used
-# USB-RS232:    C4/D4/D3/E5 — not used
-# Pmod JA:      C17/D18/E18/G17/D17/E17/F18/G18 — not used
+set_property -dict { PACKAGE_PIN N16 IOSTANDARD LVCMOS33 } [get_ports {led17_r}];
+set_property -dict { PACKAGE_PIN R11 IOSTANDARD LVCMOS33 } [get_ports {led17_g}];
+set_property -dict { PACKAGE_PIN G14 IOSTANDARD LVCMOS33 } [get_ports {led17_b}];
+
+
