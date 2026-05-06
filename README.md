@@ -3,7 +3,7 @@ Digital Electronics 1 project – 16-LED ping-pong game on the Nexys A7-50T FPGA
 
 ## Project Summary
 
-This project implements a Ping-Pong game on the Nexys A7-50T development board. A single LED represents the ball and moves across a 16-LED array. When the ball reaches the edge, the player must press the corresponding button (left button for the left edge, right button for the right edge). If the player presses in time, the green LED lights up and the score increases by 1. If the player misses, the red LED turns on and the game enters GAME_OVER state. The ball speed increases after each successful hit. The score is displayed on the 4-digit 7-segment display in decimal (0000–9999). To restart after game over, center button must be pressed. [Video] (https://www.youtube.com/watch?v=bCtOsFZXDGw).
+This project implements a Ping-Pong game on the Nexys A7-50T development board. A single LED represents the ball and moves across a 16-LED array. When the ball reaches the edge, the player must press the corresponding button (left button for the left edge, right button for the right edge). If the player presses in time, the green LED lights up and the score increases by 1. If the player misses, the red LED turns on and the game enters GAME_OVER state. The ball speed increases after each successful hit. The score is displayed on the 4-digit 7-segment display in decimal (0000–9999). To restart after game over, center button must be pressed. [Video](https://www.youtube.com/watch?v=bCtOsFZXDGw).
 
 <div align="center">
 
