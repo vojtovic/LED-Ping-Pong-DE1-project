@@ -44,15 +44,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
 # Seven-segment cathodes CA..CG + DP (active-low)
 # seg[6]=A ... seg[0]=G
 # -----------------------------------------------
-set_property PACKAGE_PIN T10 [get_ports {seg[6]}]; # CA
-set_property PACKAGE_PIN R10 [get_ports {seg[5]}]; # CB
-set_property PACKAGE_PIN K16 [get_ports {seg[4]}]; # CC
+set_property PACKAGE_PIN T10 [get_ports {seg[0]}]; # CA
+set_property PACKAGE_PIN R10 [get_ports {seg[1]}]; # CB
+set_property PACKAGE_PIN K16 [get_ports {seg[2]}]; # CC
 set_property PACKAGE_PIN K13 [get_ports {seg[3]}]; # CD
-set_property PACKAGE_PIN P15 [get_ports {seg[2]}]; # CE
-set_property PACKAGE_PIN T11 [get_ports {seg[1]}]; # CF
-set_property PACKAGE_PIN L18 [get_ports {seg[0]}]; # CG
-set_property PACKAGE_PIN H15 [get_ports {dp}];
-set_property IOSTANDARD LVCMOS33 [get_ports {seg[*] dp}]
+set_property PACKAGE_PIN P15 [get_ports {seg[4]}]; # CE
+set_property PACKAGE_PIN T11 [get_ports {seg[5]}]; # CF
+set_property PACKAGE_PIN L18 [get_ports {seg[6]}]; # CG
+set_property IOSTANDARD LVCMOS33 [get_ports {seg[*] }]
 
 # -----------------------------------------------
 # Seven-segment anodes AN7..AN0 (active-low)
