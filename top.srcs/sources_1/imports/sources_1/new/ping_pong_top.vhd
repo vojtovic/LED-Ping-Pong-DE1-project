@@ -2,20 +2,20 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity ping_pong_top is
+entity ping_pong_top is     
     generic (
         G_BALL_SPEED : positive := 7_000_000 --Lower = faster, higher = slower
     );
     port (
         clk      : in  std_logic; -- Hodiny z dosky
-        rst      : in  std_logic; -- Reset tlačidlo
-        btn_l_in : in  std_logic; -- Fyzické tlačidlo vľavo
-        btn_r_in : in  std_logic; -- Fyzické tlačidlo vpravo
-        led_g    : out std_logic; -- Zelená LED (hit)
-        led_r    : out std_logic;
+        btnc      : in  std_logic; -- Reset tlačidlo
+        btnl : in  std_logic; -- Fyzické tlačidlo vľavo
+        btnr : in  std_logic; -- Fyzické tlačidlo vpravo
+        led16_g    : out std_logic; -- Zelená LED (hit)
+        led16_r    : out std_logic;
         led      : out std_logic_vector(15 downto 0);
         seg      : out std_logic_vector(6 downto 0);
-        anode    : out std_logic_vector(7 downto 0)
+        an    : out std_logic_vector(7 downto 0)
     );
 end entity ping_pong_top;
 
@@ -160,7 +160,7 @@ begin
     INST_CONTROL_LOGIC : control_logic
         port map (
             clk               => clk,
-            rst               => rst,
+            rst               => btnc,
             en                => ce_sig, 
             btn_r             => rdeb_sig,
             btn_l             => ldeb_sig,
@@ -180,7 +180,7 @@ begin
         )
         port map (
             clk     => clk,
-            rst     => rst,
+            rst     => btnc,
             ce      => ce_sig,
             max_val => speed_sig
         );
@@ -215,9 +215,9 @@ begin
     -- Debounce pre pravé tlačidlo
     INST_DEBOUNCE_R : debounce
         port map (
-            rst => rst,
+            rst => btnc,
             clk         => clk,
-            btn_in      => btn_r_in,
+            btn_in      => btnr,
             btn_state   => open,
             btn_press   => rdeb_sig,
             btn_release => open
@@ -226,9 +226,9 @@ begin
     -- Debounce pre ľavé tlačidlo
     INST_DEBOUNCE_L : debounce
         port map (
-            rst => rst,
+            rst => btnc,
             clk         => clk,
-            btn_in      => btn_l_in,
+            btn_in      => btnl,
             btn_state   => open,
             btn_press   => ldeb_sig,
             btn_release => open
@@ -239,17 +239,17 @@ begin
     INST_GREEN_LED : led_pulse
         port map (
             clk     => clk,
-            rst     => rst,
+            rst     => btnc,
             trigger => hit_g_sig,
             tick    => ce_sig,
-            output  => led_g
+            output  => led16_g
         );
-    led_r <= hit_r_sig;
+    led16_r <= hit_r_sig;
 
     INST_SCORE : score_counter
         port map (
             clk   => clk,
-            rst   => rst,
+            rst   => btnc,
             hit   => hit_g_sig,
             score => score_sig
         );
@@ -260,7 +260,7 @@ begin
         )
         port map (
             clk      => clk,
-            rst      => rst,
+            rst      => btnc,
             hit      => hit_g_sig,
             new_game => new_game_sig,
             speed    => speed_sig
@@ -269,10 +269,10 @@ begin
     INST_DISPLAY : display_driver
         port map (
             clk   => clk,
-            rst   => rst,
+            rst   => btnc,
             data  => score_sig,
             seg   => seg,
-            anode => anode
+            anode => an
         );
 
 end Behavioral;
