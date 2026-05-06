@@ -10,14 +10,14 @@ This project implements a Ping-Pong game on the Nexys A7-50T development board. 
 | Signal name | I/O | Size | Note |
 | :---: | :---: | :---: | :---: |
 | `clk` | input | 1 | system clock (100 MHz) |
-| `rst(btn_c_in)` | input | 1 | system reset (centre button) |
-| `btn_r_in` | input | 1 | right button |
-| `btn_l_in` | input | 1 | left button |
+| `btnc` | input | 1 | system reset (centre button) |
+| `btnr` | input | 1 | right button |
+| `btnl` | input | 1 | left button |
 | `led` | output | 15:0 | LED array (ball position) |
-| `led_g` | output | 1 | green LED (successful hit) |
-| `led_r` | output | 1 | red LED (miss / game over) |
+| `led16_g` | output | 1 | green LED (successful hit) |
+| `led17_r` | output | 1 | red LED (miss / game over) |
 | `seg` | output | 6:0 | 7-segment display segments |
-| `anode` | output | 7:0 | 7-segment display anodes |
+| `an` | output | 7:0 | 7-segment display anodes |
 
 <i>Tab.1 I/O table</i>
 </div>
