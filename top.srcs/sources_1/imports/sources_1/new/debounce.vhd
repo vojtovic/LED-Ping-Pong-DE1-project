@@ -38,10 +38,12 @@ architecture Behavioral of debounce is
     ----------------------------------------------------------------
     component clk_en is
         generic ( G_MAX : positive );
+        
         port (
             clk : in  std_logic;
             rst : in  std_logic;
-            ce  : out std_logic
+            ce  : out std_logic;
+            max_val : in  natural := 0
         );
     end component clk_en;
 

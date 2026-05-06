@@ -25,13 +25,8 @@ begin
             if rst = '1' or new_game = '1' then
                 speed_reg <= G_DEFAULT;
             elsif hit = '1' then
-                step := speed_reg / 15;
-                if step = 0 then
-                    step := 1;
-                end if;
-                if speed_reg > step then
-                    speed_reg <= speed_reg - step;
-                end if;
+                step := 400000;
+                speed_reg <= speed_reg - step;
             end if;
         end if;
     end process;
