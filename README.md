@@ -132,6 +132,9 @@ Multiplexes the 16-bit BCD score across 4 digits of the 7-segment display. Conta
   <i>Pic.14 Simulation of display_driver</i>
 </div>
 
+## AI Usage
+AI tools were utilized during the development. Specifically, AI assisted in the design of the speed control logic. Furthermore, AI was used for debugging.
+
 ## Hardware
 
 - Nexys A7-50T
